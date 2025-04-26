@@ -19,7 +19,7 @@ class PFA:     ##PFA Police Firefighter Ambulance
        self.solved = solved #True Or False
 
     def add_reply(self, reply):
-       self.reply.append(comment)
+       self.reply.append(reply)
 
 # class Reply: #Might Use
 #  def __init__(self, content, author):
