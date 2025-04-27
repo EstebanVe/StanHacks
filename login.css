@@ -1,0 +1,161 @@
+/* ===== Login Page Styles ===== */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: #000;
+}
+
+.login-box {
+  background: rgba(0, 0, 0, 0.9);
+  border: 2px solid #ff6b6b;
+  padding: 40px;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 0 20px rgba(255, 107, 107, 0.2);
+  position: relative;
+  z-index: 2;
+}
+
+.login-box h1 {
+  text-align: center;
+  color: #ff6b6b;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 0px rgba(255, 0, 0, 0.3);
+}
+
+.login-form .form-group {
+  margin-bottom: 20px;
+}
+
+.login-form label {
+  display: block;
+  color: #fff;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"],
+.login-form input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #333;
+  color: #fff;
+  font-family: "VT323", monospace;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.login-form input:focus {
+  outline: none;
+  border-color: #ff6b6b;
+  box-shadow: 0 0 10px rgba(255, 107, 107, 0.2);
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.forgot-password {
+  color: #ff6b6b;
+  text-decoration: none;
+  font-size: 0.9rem;
+  float: right;
+  transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+  color: #ff0000;
+  text-decoration: underline;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background: #ff6b6b;
+  color: #fff;
+  border: none;
+  font-family: "VT323", monospace;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.login-btn:hover {
+  background: #ff0000;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2);
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 20px;
+  color: #ccc;
+}
+
+.register-link a {
+  color: #ff6b6b;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.register-link a:hover {
+  color: #ff0000;
+  text-decoration: underline;
+}
+
+/* ===== Registration Modal Styles ===== */
+#registerModal {
+  background: #000;
+  max-width: 500px;
+}
+
+#registerModal .form-group {
+  margin-bottom: 15px;
+}
+
+#registerModal label {
+  color: #fff;
+  display: block;
+  margin-bottom: 5px;
+}
+
+#registerModal input {
+  width: 100%;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #333;
+  color: #fff;
+  font-family: "VT323", monospace;
+}
+
+#registerModal input:focus {
+  outline: none;
+  border-color: #ff6b6b;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 480px) {
+  .login-box {
+    padding: 20px;
+  }
+
+  .login-box h1 {
+    font-size: 2rem;
+  }
+
+  .login-form input {
+    font-size: 16px;
+  }
+} 

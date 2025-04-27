@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Turlock Police Department Local Area Alerts - Stay informed about public safety information and community alerts" />
     <title>Turlock Police Department</title>
     <link
       href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
@@ -11,25 +12,28 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="scanline"></div>
-    <div class="noise"></div>
+    <div class="scanline" aria-hidden="true"></div>
+    <div class="noise" aria-hidden="true"></div>
 
-    <nav>
+    <nav role="navigation" aria-label="Main navigation">
       <div class="logo">
         <span>TURLOCK PD</span>
         <img
           src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiIGZpbGw9IiMwMDQ3YWIiLz48L3N2Zz4="
           alt="Police Badge"
+          width="30"
+          height="30"
         />
       </div>
       <div class="platform-text">EMERGENCY: DIAL 911</div>
-      <a href="#contact-section" class="download-btn">CONTACT US</a>
+      <a href="#contact-section" class="download-btn" role="button">CONTACT US</a>
     </nav>
 
     <main class="main-content">
       <div class="title">
-        <h1 class="pixel-text">TURLOCK POLICE</h1>
-        <h1 class="pixel-text">DEPARTMENT</h1>
+        <h1 class="pixel-text">TURLOCK LOCAL</h1>
+        <h1 class="pixel-text">AREA ALERTS</h1>
+        <p class="presented-by">Presented by YEBE</p>
       </div>
 
       <div class="subtitle">
@@ -47,23 +51,24 @@
           class="search-box"
           placeholder="Search alerts and reports..."
           id="searchBox"
+          aria-label="Search alerts and reports"
         />
-        <div class="filter-buttons">
-          <a href="#" class="filter-btn active">All</a>
-          <a href="#emergency-section" class="filter-btn">Emergency</a>
-          <a href="#department-section" class="filter-btn">Citizen</a>
-          <a href="#reports-section" class="filter-btn">Reports</a>
+        <div class="filter-buttons" role="tablist">
+          <a href="#" class="filter-btn active" role="tab" aria-selected="true">All</a>
+          <a href="#emergency-section" class="filter-btn" role="tab" aria-selected="false">Emergency</a>
+          <a href="#department-section" class="filter-btn" role="tab" aria-selected="false">Citizen</a>
+          <a href="#reports-section" class="filter-btn" role="tab" aria-selected="false">Reports</a>
         </div>
       </div>
 
-      <div class="news-section emergency" id="emergency-section">
-        <h2 class="section-title">
-          <span class="emergency-icon">🚨</span>
+      <section class="news-section emergency" id="emergency-section" aria-labelledby="emergency-title">
+        <h2 class="section-title" id="emergency-title">
+          <span class="emergency-icon" aria-hidden="true">🚨</span>
           Emergency Alerts
-          <span class="emergency-counter">2 ACTIVE</span>
+          <span class="emergency-counter">1 ACTIVE</span>
         </h2>
         <div class="news-grid">
-          <div class="news-item" data-type="emergency" id="trafficAlert">
+          <article class="news-item" data-type="emergency" id="trafficAlert">
             <div class="news-content">
               <h3 class="news-title">Traffic Advisory: Road Closure</h3>
               <div class="news-meta">
@@ -78,74 +83,27 @@
             <div class="news-footer">
               <span class="news-tag">Traffic Alert</span>
             </div>
-          </div>
-          <div class="news-item" data-type="emergency">
-            <div class="news-content">
-              <h3 class="news-title">Missing Person Alert</h3>
-              <div class="news-meta">
-                <span>2 hours ago</span>
-                <span>📍 Downtown Area</span>
-              </div>
-              <p class="news-description">
-                Seeking public assistance in locating missing elderly resident.
-                Please contact TPD with any information.
-              </p>
-            </div>
-            <div class="news-footer">
-              <span class="news-tag">Public Assistance</span>
-            </div>
-          </div>
+          </article>
         </div>
-      </div>
+      </section>
 
-      <div class="news-section" id="department-section">
-        <h2 class="section-title">
-          <span class="emoji-icon">👥</span>
+      <section class="news-section" id="department-section" aria-labelledby="citizen-title">
+        <h2 class="section-title" id="citizen-title">
+          <span class="emoji-icon" aria-hidden="true">👥</span>
           Citizen Alerts
         </h2>
         <div class="news-grid">
-          <div class="news-item">
-            <div class="news-content">
-              <h3 class="news-title">Community Policing Initiative</h3>
-              <div class="news-meta">
-                <span>Today 9:00 AM</span>
-                <span>📍 Police HQ</span>
-              </div>
-              <p class="news-description">
-                New community outreach program launching next week. Officers
-                will be conducting regular neighborhood walks and meetings.
-              </p>
-            </div>
-            <div class="news-footer">
-              <span class="news-tag">Community</span>
-            </div>
-          </div>
-          <div class="news-item">
-            <div class="news-content">
-              <h3 class="news-title">Safety Workshop Announcement</h3>
-              <div class="news-meta">
-                <span>Today 11:30 AM</span>
-                <span>📍 Community Center</span>
-              </div>
-              <p class="news-description">
-                Free personal safety workshop this weekend. Learn about home
-                security and fraud prevention from our officers.
-              </p>
-            </div>
-            <div class="news-footer">
-              <span class="news-tag">Event</span>
-            </div>
-          </div>
+          <p class="no-alerts">No Alerts in the Area</p>
         </div>
-      </div>
+      </section>
 
-      <div class="news-section" id="reports-section">
-        <h2 class="section-title">
-          <span class="emoji-icon">📋</span>
+      <section class="news-section" id="reports-section" aria-labelledby="reports-title">
+        <h2 class="section-title" id="reports-title">
+          <span class="emoji-icon" aria-hidden="true">📋</span>
           Local Updates
         </h2>
         <div class="news-grid">
-          <div class="news-item">
+          <article class="news-item">
             <div class="news-content">
               <h3 class="news-title">Monthly Crime Statistics</h3>
               <div class="news-meta">
@@ -160,8 +118,8 @@
             <div class="news-footer">
               <span class="news-tag">Statistics</span>
             </div>
-          </div>
-          <div class="news-item">
+          </article>
+          <article class="news-item">
             <div class="news-content">
               <h3 class="news-title">Solved Cases Update</h3>
               <div class="news-meta">
@@ -176,44 +134,46 @@
             <div class="news-footer">
               <span class="news-tag">Case Update</span>
             </div>
-          </div>
+          </article>
         </div>
-      </div>
+      </section>
     </div>
 
-    <div class="floating-button" id="reportButton">+</div>
+    <button class="floating-button" id="reportButton" aria-label="Submit new report">+</button>
 
-    <div class="overlay" id="overlay"></div>
+    <div class="overlay" id="overlay" aria-hidden="true"></div>
 
-    <div class="modal" id="reportModal">
+    <div class="modal" id="reportModal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
       <div class="modal-header">
-        <h2 class="pixel-text">SUBMIT TIP</h2>
-        <button class="close-button" id="closeModal">×</button>
+        <h2 class="pixel-text" id="modal-title">SUBMIT TIP</h2>
+        <button class="close-button" id="closeModal" aria-label="Close modal">×</button>
       </div>
       <div class="modal-content">
         <form id="reportForm">
-          <select class="incident-type" required>
+          <select class="incident-type" required aria-label="Incident type">
             <option value="">Select Incident Type</option>
             <option value="1">Level 1 - Awareness Report</option>
             <option value="2">Level 2 - Caution Advised</option>
             <option value="3">Level 3 - Possible Threat</option>
             <option value="4">Level 4 - Threat / Extreme Caution</option>
+            <option value="5">Level 5 - Police Warning</option>
           </select>
-          <input type="text" placeholder="Location" required />
+          <input type="text" placeholder="Location" required aria-label="Location" />
           <textarea
             placeholder="Incident Details (Be as specific as possible)"
             required
+            aria-label="Incident details"
           ></textarea>
-          <input type="text" placeholder="Contact Information (Optional)" />
+          <input type="text" placeholder="Contact Information (Optional)" aria-label="Contact information" />
           <button type="submit" class="submit-btn">SUBMIT TIP</button>
         </form>
       </div>
     </div>
 
-    <div class="modal" id="expandedReportModal">
+    <div class="modal" id="expandedReportModal" role="dialog" aria-labelledby="expanded-title" aria-hidden="true">
       <div class="modal-header">
-        <h2 class="pixel-text" id="expandedTitle"></h2>
-        <button class="close-button" id="closeExpandedModal">×</button>
+        <h2 class="pixel-text" id="expanded-title"></h2>
+        <button class="close-button" id="closeExpandedModal" aria-label="Close expanded view">×</button>
       </div>
       <div class="modal-content">
         <div class="expanded-meta" id="expandedMeta"></div>
@@ -222,31 +182,31 @@
       </div>
     </div>
 
-    <div class="alert-banner" id="alertBanner"></div>
+    <div class="alert-banner" id="alertBanner" role="alert" aria-live="polite"></div>
 
-    <div class="contact-section" id="contact-section">
-      <h2 class="section-title">
-        <span class="emoji-icon">📞</span>
+    <section class="contact-section" id="contact-section" aria-labelledby="contact-title">
+      <h2 class="section-title" id="contact-title">
+        <span class="emoji-icon" aria-hidden="true">📞</span>
         Contact Us
       </h2>
       <div class="contact-grid">
         <div class="contact-info">
           <div class="contact-item">
-            <span class="contact-icon">📍</span>
+            <span class="contact-icon" aria-hidden="true">📍</span>
             <div>
               <h3>Address</h3>
               <p>244 N Broadway<br />Turlock, CA 95380</p>
             </div>
           </div>
           <div class="contact-item">
-            <span class="contact-icon">📞</span>
+            <span class="contact-icon" aria-hidden="true">📞</span>
             <div>
               <h3>Phone Numbers</h3>
               <p>Emergency: 911<br />Non-Emergency: (209) 668-1200</p>
             </div>
           </div>
           <div class="contact-item">
-            <span class="contact-icon">📧</span>
+            <span class="contact-icon" aria-hidden="true">📧</span>
             <div>
               <h3>Email</h3>
               <p>info@turlockpd.com</p>
@@ -265,15 +225,15 @@
         <div class="contact-form">
           <h3>Send us a Message</h3>
           <form id="contactForm">
-            <input type="text" placeholder="Your Name" required />
-            <input type="email" placeholder="Your Email" required />
-            <input type="text" placeholder="Subject" required />
-            <textarea placeholder="Your Message" required></textarea>
+            <input type="text" placeholder="Your Name" required aria-label="Your name" />
+            <input type="email" placeholder="Your Email" required aria-label="Your email" />
+            <input type="text" placeholder="Subject" required aria-label="Message subject" />
+            <textarea placeholder="Your Message" required aria-label="Your message"></textarea>
             <button type="submit">SEND MESSAGE</button>
           </form>
         </div>
       </div>
-    </div>
+    </section>
 
     <script src="script.js"></script>
   </body>

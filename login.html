@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Turlock Police Department - Login Portal" />
+    <title>TPD Login Portal</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <div class="scanline" aria-hidden="true"></div>
+    <div class="noise" aria-hidden="true"></div>
+
+    <nav role="navigation" aria-label="Main navigation">
+      <div class="logo">
+        <span>TURLOCK PD</span>
+        <img
+          src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiIGZpbGw9IiMwMDQ3YWIiLz48L3N2Zz4="
+          alt="Police Badge"
+          width="30"
+          height="30"
+        />
+      </div>
+      <div class="platform-text">EMERGENCY: DIAL 911</div>
+      <a href="index.html" class="download-btn" role="button">HOME</a>
+    </nav>
+
+    <main class="login-container">
+      <div class="login-box">
+        <h1 class="pixel-text">LOGIN PORTAL</h1>
+        <form id="loginForm" class="login-form">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input 
+              type="text" 
+              id="username" 
+              name="username" 
+              required 
+              autocomplete="username"
+              aria-label="Username"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input 
+              type="password" 
+              id="password" 
+              name="password" 
+              required
+              autocomplete="current-password"
+              aria-label="Password"
+            />
+          </div>
+          <div class="form-group">
+            <label class="remember-me">
+              <input type="checkbox" name="remember" id="remember" />
+              Remember me
+            </label>
+            <a href="#" class="forgot-password">Forgot Password?</a>
+          </div>
+          <button type="submit" class="login-btn">LOGIN</button>
+        </form>
+        <div class="register-link">
+          <p>Don't have an account? <a href="#" id="registerBtn">Register</a></p>
+        </div>
+      </div>
+
+      <!-- Registration Modal -->
+      <div class="modal" id="registerModal" role="dialog" aria-labelledby="register-title" aria-hidden="true">
+        <div class="modal-header">
+          <h2 class="pixel-text" id="register-title">REGISTER</h2>
+          <button class="close-button" id="closeRegisterModal" aria-label="Close modal">×</button>
+        </div>
+        <div class="modal-content">
+          <form id="registerForm">
+            <div class="form-group">
+              <label for="regUsername">Username</label>
+              <input 
+                type="text" 
+                id="regUsername" 
+                name="username" 
+                required 
+                autocomplete="username"
+                aria-label="Choose username"
+              />
+            </div>
+            <div class="form-group">
+              <label for="regEmail">Email</label>
+              <input 
+                type="email" 
+                id="regEmail" 
+                name="email" 
+                required 
+                autocomplete="email"
+                aria-label="Email address"
+              />
+            </div>
+            <div class="form-group">
+              <label for="regPassword">Password</label>
+              <input 
+                type="password" 
+                id="regPassword" 
+                name="password" 
+                required
+                autocomplete="new-password"
+                aria-label="Choose password"
+              />
+            </div>
+            <div class="form-group">
+              <label for="regConfirmPassword">Confirm Password</label>
+              <input 
+                type="password" 
+                id="regConfirmPassword" 
+                name="confirmPassword" 
+                required
+                autocomplete="new-password"
+                aria-label="Confirm password"
+              />
+            </div>
+            <button type="submit" class="submit-btn">REGISTER</button>
+          </form>
+        </div>
+      </div>
+      <div class="overlay" id="registerOverlay" aria-hidden="true"></div>
+    </main>
+
+    <script src="login.js"></script>
+  </body>
+</html> 
