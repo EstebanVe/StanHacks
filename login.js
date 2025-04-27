@@ -46,7 +46,7 @@ async function handleLogin(e) {
             const storage = formData.remember ? localStorage : sessionStorage;
             storage.setItem('authToken', response.token);
             
-            // Redirect to main page
+            // Redirect to main page e
             window.location.href = 'index.html';
         } else {
             showError('Invalid username or password');
