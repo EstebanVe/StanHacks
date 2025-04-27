@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Turlock Police Department</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="scanline"></div>
+    <div class="noise"></div>
+
+    <nav>
+      <div class="logo">
+        <span>TURLOCK PD</span>
+        <img
+          src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiIGZpbGw9IiMwMDQ3YWIiLz48L3N2Zz4="
+          alt="Police Badge"
+        />
+      </div>
+      <div class="platform-text">EMERGENCY: DIAL 911</div>
+      <button class="download-btn">CONTACT US</button>
+    </nav>
+
+    <main class="main-content">
+      <div class="title">
+        <h1 class="pixel-text">TURLOCK POLICE</h1>
+        <h1 class="pixel-text">DEPARTMENT</h1>
+      </div>
+
+      <div class="subtitle">
+        <p>PUBLIC SAFETY INFORMATION</p>
+        <p>AND COMMUNITY ALERTS</p>
+        <p>SERVING AND PROTECTING</p>
+        <p>OUR COMMUNITY</p>
+      </div>
+    </main>
+
+    <div class="additional-content">
+      <div class="search-container">
+        <input
+          type="text"
+          class="search-box"
+          placeholder="Search alerts and reports..."
+          id="searchBox"
+        />
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all" data-scroll="all">
+            All
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="emergency"
+            data-scroll="emergency-section"
+          >
+            Emergency
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="department"
+            data-scroll="department-section"
+          >
+            Department
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="reports"
+            data-scroll="reports-section"
+          >
+            Reports
+          </button>
+        </div>
+      </div>
+
+      <div class="news-section emergency" id="emergency-section">
+        <h2 class="section-title">
+          <span class="emergency-icon">🚨</span>
+          Emergency Alerts
+          <span class="emergency-counter">2 ACTIVE</span>
+        </h2>
+        <div class="news-grid">
+          <div class="news-item" data-type="emergency">
+            <div class="news-content">
+              <h3 class="news-title">Traffic Advisory: Road Closure</h3>
+              <div class="news-meta">
+                <span>30 minutes ago</span>
+                <span>📍 Main Street</span>
+              </div>
+              <p class="news-description">
+                Major intersection closed due to traffic accident investigation.
+                Please use alternate routes. Expected duration: 2 hours.
+              </p>
+            </div>
+            <div class="news-footer">
+              <span class="news-tag">Traffic Alert</span>
+            </div>
+          </div>
+          <div class="news-item" data-type="emergency">
+            <div class="news-content">
+              <h3 class="news-title">Missing Person Alert</h3>
+              <div class="news-meta">
+                <span>2 hours ago</span>
+                <span>📍 Downtown Area</span>
+              </div>
+              <p class="news-description">
+                Seeking public assistance in locating missing elderly resident.
+                Please contact TPD with any information.
+              </p>
+            </div>
+            <div class="news-footer">
+              <span class="news-tag">Public Assistance</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="news-section" id="department-section">
+        <h2 class="section-title">
+          <span class="emoji-icon">👮</span>
+          Department Updates
+        </h2>
+        <div class="news-grid">
+          <div class="news-item">
+            <div class="news-content">
+              <h3 class="news-title">Community Policing Initiative</h3>
+              <div class="news-meta">
+                <span>Today 9:00 AM</span>
+                <span>📍 Police HQ</span>
+              </div>
+              <p class="news-description">
+                New community outreach program launching next week. Officers
+                will be conducting regular neighborhood walks and meetings.
+              </p>
+            </div>
+            <div class="news-footer">
+              <span class="news-tag">Community</span>
+            </div>
+          </div>
+          <div class="news-item">
+            <div class="news-content">
+              <h3 class="news-title">Safety Workshop Announcement</h3>
+              <div class="news-meta">
+                <span>Today 11:30 AM</span>
+                <span>📍 Community Center</span>
+              </div>
+              <p class="news-description">
+                Free personal safety workshop this weekend. Learn about home
+                security and fraud prevention from our officers.
+              </p>
+            </div>
+            <div class="news-footer">
+              <span class="news-tag">Event</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="news-section" id="reports-section">
+        <h2 class="section-title">
+          <span class="emoji-icon">📋</span>
+          Recent Reports
+        </h2>
+        <div class="news-grid">
+          <div class="news-item">
+            <div class="news-content">
+              <h3 class="news-title">Monthly Crime Statistics</h3>
+              <div class="news-meta">
+                <span>This Week</span>
+                <span>📍 Citywide</span>
+              </div>
+              <p class="news-description">
+                Latest crime statistics show 15% reduction in property crimes.
+                View full report on our website.
+              </p>
+            </div>
+            <div class="news-footer">
+              <span class="news-tag">Statistics</span>
+            </div>
+          </div>
+          <div class="news-item">
+            <div class="news-content">
+              <h3 class="news-title">Solved Cases Update</h3>
+              <div class="news-meta">
+                <span>This Week</span>
+                <span>📍 TPD HQ</span>
+              </div>
+              <p class="news-description">
+                Recent arrests made in connection with local burglary cases.
+                Thank you to community members for their assistance.
+              </p>
+            </div>
+            <div class="news-footer">
+              <span class="news-tag">Case Update</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="floating-button" id="reportButton">!</div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <div class="modal" id="reportModal">
+      <div class="modal-header">
+        <h2 class="pixel-text">SUBMIT TIP</h2>
+        <button class="close-button" id="closeModal">×</button>
+      </div>
+      <div class="modal-content">
+        <form id="reportForm">
+          <input type="text" placeholder="Incident Type" required />
+          <input type="text" placeholder="Location" required />
+          <textarea
+            placeholder="Incident Details (Be as specific as possible)"
+            required
+          ></textarea>
+          <input type="text" placeholder="Contact Information (Optional)" />
+          <button type="submit" class="submit-btn">SUBMIT TIP</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="alert-banner" id="alertBanner"></div>
+
+    <div class="contact-section" id="contact-section">
+      <h2 class="section-title">
+        <span class="emoji-icon">📞</span>
+        Contact Us
+      </h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="contact-icon">📍</span>
+            <div>
+              <h3>Address</h3>
+              <p>244 N Broadway<br />Turlock, CA 95380</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📞</span>
+            <div>
+              <h3>Phone Numbers</h3>
+              <p>Emergency: 911<br />Non-Emergency: (209) 668-1200</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📧</span>
+            <div>
+              <h3>Email</h3>
+              <p>info@turlockpd.com</p>
+            </div>
+          </div>
+          <div class="department-hours">
+            <h3>Department Hours</h3>
+            <ul class="hours-list">
+              <li>Monday - Friday: 8:00 AM - 5:00 PM</li>
+              <li>Saturday: 9:00 AM - 1:00 PM</li>
+              <li>Sunday: Closed</li>
+              <li>Emergency Services: 24/7</li>
+            </ul>
+          </div>
+        </div>
+        <div class="contact-form">
+          <h3>Send us a Message</h3>
+          <form id="contactForm">
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <input type="text" placeholder="Subject" required />
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">SEND MESSAGE</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
