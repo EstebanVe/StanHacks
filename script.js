@@ -1,88 +1,83 @@
-const scroll = new LocomotiveScroll({
-    el: document.querySelector('#main'),
-    smooth: true
-});
+// const scroll = new LocomotiveScroll({
+//     el: document.querySelector('#main'),
+//     smooth: true
+// });
 
-var tl = gsap.timeline()
-
-tl.to("#page1", {
-    y: "100vh",
-    scale: 0.6,
-    duration: 0
-})
-tl.to("#page1", {
-    y: "30vh",
-    duration: 1,
-    delay: 1
-})
-tl.to("#page1", {
-    y: "0vh",
-    rotate: 360,
-    scale: 1,
-    duration: 0.7
-})
+// var tl = gsap.timeline()
+// tl.to("#page1", {
+//     y: "100vh",
+//     scale: 0.6,
+//     duration: 0
+// })
+// tl.to("#page1", {
+//     y: "30vh",
+//     duration: 1,
+//     delay: 1
+// })
+// tl.to("#page1", {
+//     y: "0vh",
+//     rotate: 360,
+//     scale: 1,
+//     duration: 0.7
+// })
 
 // DOM Elements
 const searchBox = document.querySelector('.search-box');
 const filterButtons = document.querySelectorAll('.filter-btn');
-const newsItems = document.querySelectorAll('.news-item');
+const newsItems = document.querySelectorAll('.news-item:not(#trafficAlert)'); // Exclude traffic alert
 const floatingButton = document.querySelector('.floating-button');
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const closeButton = document.querySelector('.close-button');
 const contactForm = document.querySelector('.contact-form form');
 
-// Search functionality
-searchBox.addEventListener('input', (e) => {
-    const searchTerm = e.target.value.toLowerCase();
-    newsItems.forEach(item => {
-        const title = item.querySelector('.news-title').textContent.toLowerCase();
-        const description = item.querySelector('.news-description').textContent.toLowerCase();
-        const isVisible = title.includes(searchTerm) || description.includes(searchTerm);
-        item.style.display = isVisible ? 'flex' : 'none';
-    });
-});
-
-// Filter functionality
-filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const category = button.getAttribute('data-category');
-
-        // Update active state
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-
-        // Filter news items
-        newsItems.forEach(item => {
-            if (category === 'all') {
-                item.style.display = 'flex';
-            } else {
-                const itemCategory = item.getAttribute('data-category');
-                item.style.display = itemCategory === category ? 'flex' : 'none';
+// Filter and scroll functionality
+// Simple button click handler
+document.querySelectorAll('.filter-btn').forEach(button => {
+    button.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('data-scroll');
+        if (targetId === 'all') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+            const element = document.getElementById(targetId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
             }
-        });
-
-        // Smooth scroll to section
-        const targetSection = document.querySelector(`#${category}-section`);
-        if (targetSection) {
-            targetSection.scrollIntoView({ behavior: 'smooth' });
         }
     });
 });
 
+// Search and filter functionality
+function filterContent() {
+    const searchTerm = searchBox.value.toLowerCase();
+    const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+
+    document.querySelectorAll('.news-section').forEach(section => {
+        const sectionType = section.id.replace('-section', '');
+        const shouldShow = activeFilter === 'all' || sectionType === activeFilter;
+        section.style.display = shouldShow ? 'block' : 'none';
+    });
+
+    if (searchTerm) {
+        document.querySelectorAll('.news-item').forEach(item => {
+            const title = item.querySelector('.news-title').textContent.toLowerCase();
+            const description = item.querySelector('.news-description').textContent.toLowerCase();
+            const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
+            item.style.display = matchesSearch ? 'flex' : 'none';
+        });
+    }
+}
+
 // Modal functionality
 floatingButton.addEventListener('click', () => {
     modal.style.display = 'block';
-    overlay.style.display = 'block';
     document.body.style.overflow = 'hidden';
 });
 
 closeButton.addEventListener('click', closeModal);
-overlay.addEventListener('click', closeModal);
 
 function closeModal() {
     modal.style.display = 'none';
-    overlay.style.display = 'none';
     document.body.style.overflow = 'auto';
 }
 
@@ -135,6 +130,80 @@ contactForm.addEventListener('submit', (e) => {
         }, 3000);
     }, 1000);
 });
+
+// Report form submission
+const reportForm = document.getElementById('reportForm');
+if (reportForm) {
+    reportForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const incidentType = reportForm.querySelector('.incident-type').value;
+        const location = reportForm.querySelector('input[placeholder="Location"]').value;
+        const details = reportForm.querySelector('textarea').value;
+        const contact = reportForm.querySelector('input[placeholder="Contact Information (Optional)"]').value;
+        
+        // Create new report element
+        const newReport = document.createElement('div');
+        newReport.className = 'news-item';
+        newReport.innerHTML = `
+            <div class="news-content">
+                <h3 class="news-title">${getIncidentTitle(incidentType)}</h3>
+                <div class="news-meta">
+                    <span>Just now</span>
+                    <span>📍 ${location}</span>
+                </div>
+                <p class="news-description">
+                    ${details}
+                </p>
+            </div>
+            <div class="news-footer">
+                <span class="news-tag">${getIncidentTag(incidentType)}</span>
+            </div>
+        `;
+        
+        // Add to appropriate section based on incident type
+        const citizenSection = document.querySelector('#department-section .news-grid');
+        if (incidentType === '1' || incidentType === '2') {
+            citizenSection.insertBefore(newReport, citizenSection.firstChild);
+        }
+        
+        // Show success message
+        const alertBanner = document.createElement('div');
+        alertBanner.className = 'alert-banner';
+        alertBanner.textContent = 'Report submitted successfully!';
+        document.body.appendChild(alertBanner);
+        
+        // Clear form and close modal
+        reportForm.reset();
+        closeModal();
+        
+        // Remove alert after 3 seconds
+        setTimeout(() => {
+            alertBanner.remove();
+        }, 3000);
+    });
+}
+
+// Helper functions for incident types
+function getIncidentTitle(type) {
+    const titles = {
+        '1': 'Awareness Report',
+        '2': 'Caution Advisory',
+        '3': 'Possible Threat Alert',
+        '4': 'Threat Alert'
+    };
+    return titles[type] || 'New Report';
+}
+
+function getIncidentTag(type) {
+    const tags = {
+        '1': 'Awareness',
+        '2': 'Caution',
+        '3': 'Threat',
+        '4': 'Extreme Caution'
+    };
+    return tags[type] || 'Report';
+}
 
 // Emergency counter update
 const emergencyCounter = document.querySelector('.emergency-counter');

@@ -23,7 +23,7 @@
         />
       </div>
       <div class="platform-text">EMERGENCY: DIAL 911</div>
-      <button class="download-btn">CONTACT US</button>
+      <a href="#contact-section" class="download-btn">CONTACT US</a>
     </nav>
 
     <main class="main-content">
@@ -49,30 +49,10 @@
           id="searchBox"
         />
         <div class="filter-buttons">
-          <button class="filter-btn active" data-filter="all" data-scroll="all">
-            All
-          </button>
-          <button
-            class="filter-btn"
-            data-filter="emergency"
-            data-scroll="emergency-section"
-          >
-            Emergency
-          </button>
-          <button
-            class="filter-btn"
-            data-filter="department"
-            data-scroll="department-section"
-          >
-            Department
-          </button>
-          <button
-            class="filter-btn"
-            data-filter="reports"
-            data-scroll="reports-section"
-          >
-            Reports
-          </button>
+          <a href="#" class="filter-btn active">All</a>
+          <a href="#emergency-section" class="filter-btn">Emergency</a>
+          <a href="#department-section" class="filter-btn">Citizen</a>
+          <a href="#reports-section" class="filter-btn">Reports</a>
         </div>
       </div>
 
@@ -83,7 +63,7 @@
           <span class="emergency-counter">2 ACTIVE</span>
         </h2>
         <div class="news-grid">
-          <div class="news-item" data-type="emergency">
+          <div class="news-item" data-type="emergency" id="trafficAlert">
             <div class="news-content">
               <h3 class="news-title">Traffic Advisory: Road Closure</h3>
               <div class="news-meta">
@@ -120,8 +100,8 @@
 
       <div class="news-section" id="department-section">
         <h2 class="section-title">
-          <span class="emoji-icon">👮</span>
-          Department Updates
+          <span class="emoji-icon">👥</span>
+          Citizen Alerts
         </h2>
         <div class="news-grid">
           <div class="news-item">
@@ -162,7 +142,7 @@
       <div class="news-section" id="reports-section">
         <h2 class="section-title">
           <span class="emoji-icon">📋</span>
-          Recent Reports
+          Local Updates
         </h2>
         <div class="news-grid">
           <div class="news-item">
@@ -201,7 +181,7 @@
       </div>
     </div>
 
-    <div class="floating-button" id="reportButton">!</div>
+    <div class="floating-button" id="reportButton">+</div>
 
     <div class="overlay" id="overlay"></div>
 
@@ -212,7 +192,13 @@
       </div>
       <div class="modal-content">
         <form id="reportForm">
-          <input type="text" placeholder="Incident Type" required />
+          <select class="incident-type" required>
+            <option value="">Select Incident Type</option>
+            <option value="1">Level 1 - Awareness Report</option>
+            <option value="2">Level 2 - Caution Advised</option>
+            <option value="3">Level 3 - Possible Threat</option>
+            <option value="4">Level 4 - Threat / Extreme Caution</option>
+          </select>
           <input type="text" placeholder="Location" required />
           <textarea
             placeholder="Incident Details (Be as specific as possible)"
@@ -221,6 +207,18 @@
           <input type="text" placeholder="Contact Information (Optional)" />
           <button type="submit" class="submit-btn">SUBMIT TIP</button>
         </form>
+      </div>
+    </div>
+
+    <div class="modal" id="expandedReportModal">
+      <div class="modal-header">
+        <h2 class="pixel-text" id="expandedTitle"></h2>
+        <button class="close-button" id="closeExpandedModal">×</button>
+      </div>
+      <div class="modal-content">
+        <div class="expanded-meta" id="expandedMeta"></div>
+        <div class="expanded-description" id="expandedDescription"></div>
+        <div class="expanded-footer" id="expandedFooter"></div>
       </div>
     </div>
 
