@@ -87,7 +87,7 @@ function handleFilterClick(e) {
         return;
     }
 
-    const element = document.getElementById(targetId);
+    const felement = document.getElementById(targetId);
     if (element) {
         // Get the element's position relative to the viewport
         const rect = element.getBoundingClientRect();
